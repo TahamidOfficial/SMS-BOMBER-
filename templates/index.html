@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER TAHAMID SMS BOMBER</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            color: #f3f4f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+            animation: modernEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px) scale(0.97);
+        }
+
+        @keyframes modernEnter {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .prefix {
+            font-size: 16px;
+            font-weight: 600;
+            margin-right: 10px;
+            color: #93c5fd;
+        }
+
+        .number-input {
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            outline: none;
+            width: 100%;
+        }
+
+        .number-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(15, 23, 42, 0.6);
+            color: #ffffff;
+            outline: none;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        select option {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        select:hover {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        #start-btn { 
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%); 
+            color: white; 
+            border: none;
+        }
+        #start-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        #stop-btn { 
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); 
+            color: white; 
+            border: none;
+        }
+        #stop-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        #status-card {
+            background: rgba(2, 6, 23, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px;
+            min-height: 85px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 13px;
+            color: #38bdf8;
+            max-height: 150px;
+            overflow-y: auto;
+            word-break: break-all;
+        }
+
+        /* Glowing Soft Footer Info */
+        .footer-info {
+            margin-top: 18px;
+            font-size: 12px;
+            line-height: 1.5;
+            animation: softGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes softGlow {
+            0% { color: rgba(147, 197, 253, 0.5); text-shadow: 0 0 2px rgba(0,0,0,0.2); }
+            100% { color: rgba(255, 255, 255, 0.9); text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+        }
+
+        .footer-info p {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>CYBER TAHAMID SMS BOMBER</h2>
+        
+        <div class="input-group">
+            <span class="prefix">🇧🇩 +88</span>
+            <input type="text" id="target-number" class="number-input" placeholder="01XXXXXXXXX" maxlength="11">
+        </div>
+
+        <select id="attack-mode">
+            <option value="1">Fast Mode (High Speed)</option>
+            <option value="2">Slow Mode (Stealth)</option>
+        </select>
+
+        <div class="btn-row">
+            <button id="start-btn" onclick="startAttack()">Start Attack</button>
+            <button id="stop-btn" onclick="stopAttack()">Stop / Off</button>
+        </div>
+
+        <div id="status-card">System ready. Enter number and click Start.</div>
+
+        <div class="footer-info">
+            <p>Developer by Tahamid Hossain</p>
+            <p>Copyright by Tahamid</p>
+            <p>Contact us: tahamidbusiness1m@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        let activeReader = null;
+
+        async function startAttack() {
+            let rawNumber = document.getElementById('target-number').value.trim();
+            const mode = document.getElementById('attack-mode').value;
+            const statusCard = document.getElementById('status-card');
+
+            // ফিল্টার চেক (01864005433)
+            if (rawNumber === '01864005433' || rawNumber === '1864005433') {
+                alert("এই নাম্বার এ মেসেজ যাবে না");
+                return;
+            }
+
+            let number = "";
+            if (rawNumber.startsWith('0') && rawNumber.length === 11) {
+                number = rawNumber;
+            } else if (rawNumber.length === 10) {
+                number = '0' + rawNumber;
+            }
+
+            if (number.length !== 11 || !number.startsWith('01')) {
+                alert("দয়া করে সঠিক ১১ ডিজিটের নাম্বার দিন (যেমন: 01XXXXXXXXX)।");
+                return;
+            }
+
+            statusCard.innerHTML = `[+] Initializing attack on +88${number}...\n`;
+
+            try {
+                const response = await fetch(`/run-sms?number=${number}&mode=${mode}`);
+                const reader = response.body.getReader();
+                activeReader = reader;
+                const decoder = new TextDecoder();
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    const text = decoder.decode(value, { stream: true });
+                    
+                    if (text.includes("FILTERED")) {
+                        alert("এই নাম্বার এ মেসেজ যাবে না");
+                        statusCard.innerHTML = "[!] Blocked by filter.";
+                        break;
+                    } else if (text.includes("INVALID")) {
+                        statusCard.innerHTML = "[!] Invalid Number format.";
+                        break;
+                    } else if (text.includes("DONE")) {
+                        statusCard.innerHTML += "<br>[✓] Process finished.";
+                        break;
+                    } else {
+                        statusCard.innerHTML += text.replace(/\n/g, '<br>');
+                        statusCard.scrollTop = statusCard.scrollHeight;
+                    }
+                }
+            } catch (err) {
+                statusCard.innerHTML += "<br>[!] Connection stopped.";
+            }
+        }
+
+        async function stopAttack() {
+            if (activeReader) {
+                try { activeReader.cancel(); } catch (e) {}
+            }
+            
+            fetch('/stop-sms', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    statusCard.innerHTML += `<br>[🛑] ${data.message}`;
+                });
+        }
+    </script>
+</body>
+</html>

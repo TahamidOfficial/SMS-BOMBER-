@@ -1,0 +1,6 @@
+Flask
+aiohttp
+requests
+colorama
+fake-useragent
+
