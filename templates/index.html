@@ -16,48 +16,34 @@
         }
 
         body {
-            /* Real High Quality World Network Background Image */
-            background: #020617 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
+            /* ব্যাকগ্রাউন্ড সম্পূর্ণ ক্লিন এবং কার্ড সেন্ট্রিক গ্রেডিয়েন্ট */
+            background: #090d16;
             min-height: 100vh;
             color: #0f172a;
             font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 14px;
-            overflow-x: hidden;
-            position: relative;
+            padding: 12px;
+            overflow: hidden;
         }
 
-        /* Subtle Dark Overlay to balance visibility and network background */
-        body::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(2, 6, 23, 0.45);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* MAIN GLASS CONTAINER WITH LIQUID REFRACTION */
+        /* MAIN GLASS CONTAINER - Optimized for Mobile, PC, Tablet & 4K TVs */
         .glass-container {
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 410px;
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1.5px solid rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            padding: 26px 18px 20px 18px;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1.5px solid rgba(255, 255, 255, 1);
+            border-radius: 32px;
+            padding: 26px 20px 20px 20px;
             box-shadow: 
-                inset 0 2px 3px rgba(255, 255, 255, 1),
-                inset 0 -1.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 2px 4px rgba(255, 255, 255, 1),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.05),
                 0 25px 50px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -65,23 +51,8 @@
         }
 
         @keyframes containerAppear {
-            from { opacity: 0; transform: translateY(15px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        /* CORNER GLASS REFRACTION */
-        .glass-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg,
-                rgba(255, 255, 255, 0.6) 0%,
-                rgba(255, 255, 255, 0.1) 30%,
-                transparent 60%,
-                rgba(255, 255, 255, 0.3) 100%);
-            pointer-events: none;
-            z-index: 2;
-            border-radius: 30px;
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .content-layer {
@@ -97,11 +68,9 @@
             font-size: 26px;
             font-weight: 900;
             letter-spacing: -0.5px;
-            white-space: nowrap;
             color: #0f172a;
             text-align: center;
             text-transform: uppercase;
-            margin-bottom: 2px;
         }
 
         /* CLEAR INPUT FIELD */
@@ -148,7 +117,7 @@
             font-weight: 700;
         }
 
-        /* SELECT DROPDOWN OPTIMIZED FOR FULL TEXT VISIBILITY */
+        /* SELECT DROPDOWN */
         .select-wrapper {
             position: relative;
             width: 100%;
@@ -167,12 +136,8 @@
             outline: none;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
             appearance: none;
             -webkit-appearance: none;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
         }
 
         .select-wrapper::after {
@@ -198,7 +163,7 @@
             font-size: 13px;
         }
 
-        /* BUTTONS WITH SOFT LIQUID GLASS STYLE */
+        /* BUTTONS WITH ANIMATION */
         .btn-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -225,7 +190,6 @@
         #start-btn:hover { 
             background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
         }
 
         #stop-btn { 
@@ -234,21 +198,20 @@
         #stop-btn:hover { 
             background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
         }
 
         button:active {
             transform: translateY(0) scale(0.97);
         }
 
-        /* CLEAR WHITE TERMINAL BOX */
+        /* TERMINAL BOX */
         #status-card {
             background: #ffffff;
             border: 1.5px solid #cbd5e1;
             border-radius: 16px;
-            padding: 14px;
-            min-height: 85px;
-            max-height: 130px;
+            padding: 12px;
+            min-height: 80px;
+            max-height: 120px;
             text-align: left;
             font-family: 'Inter', sans-serif;
             font-size: 13px;
@@ -256,19 +219,17 @@
             color: #0f172a;
             overflow-y: auto;
             word-break: break-word;
-            overflow-wrap: break-word;
             line-height: 1.5;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
         }
 
         /* FOOTER */
         .footer-info {
-            margin-top: 2px;
             font-size: 11px;
             color: #475569;
             text-align: center;
             font-weight: 800;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .footer-info span {
@@ -276,20 +237,11 @@
             font-weight: 900;
         }
 
-        /* MOBILE ADJUSTMENTS */
-        @media (max-width: 380px) {
+        /* TV & LARGE SCREEN OPTIMIZATION */
+        @media (min-width: 1200px) {
             .glass-container {
-                padding: 20px 14px 16px 14px;
-            }
-            .brand-title {
-                font-size: 22px;
-            }
-            select {
-                font-size: 12.5px;
-            }
-            button {
-                padding: 12px;
-                font-size: 14px;
+                max-width: 460px;
+                padding: 30px 24px 22px 24px;
             }
         }
     </style>
